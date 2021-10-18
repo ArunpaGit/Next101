@@ -29,7 +29,7 @@ export const getStaticPaths = async () => {
                 + currentdate.getTimezoneOffset() + " )";
     return {
       props: { mydata: data, myTime: curtime },
-      revalidate: 1
+      revalidate: 40
     }
   }
   
