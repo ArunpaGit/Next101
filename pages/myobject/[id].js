@@ -19,16 +19,14 @@ export const getStaticPaths = async () => {
     const id = context.params.id;
     const res = await fetch('https://jsonplaceholder.typicode.com/users/' + id);
     const data = await res.json();
-    //const res1 = await fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata');
-    //const data1 = await res1.json();
-    //const curtime = data1.datetime;
     var currentdate = new Date(); 
     var curtime = "Last Sync: " + currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getFullYear() + " @ "  
                 + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
+                + currentdate.getSeconds() + " ("
+                + currentdate.getTimezoneOffset() + " )";
     return {
       props: { mydata: data, myTime: curtime }
     }
