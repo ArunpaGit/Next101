@@ -27,7 +27,10 @@ export const getStaticPaths = async () => {
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds() + " ("
                 + currentdate.getTimezoneOffset() + " )";
-    return {
+    curtime = "Last Build time:  " + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+      return {
       props: { mydata: data, myTime: curtime }
     }
   }
@@ -39,8 +42,8 @@ export const getStaticPaths = async () => {
         <p>{ mydata.email }</p>
         <p>{ mydata.website }</p>
         <p>{ mydata.address.city }</p>
-        <p>Generated at { myTime }</p>
-        <p>Generated at { myTime.timezone }</p>
+        <h1> { myTime }</h1>
+        
       </div>
     );
   }
